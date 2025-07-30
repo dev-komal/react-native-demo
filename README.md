@@ -5,6 +5,7 @@ A micro-frontend banking portal demonstrating maximum code sharing between Web a
 ---
 
 ## Features
+
 - **Micro Frontends**: Independent Account Overview and Transaction History apps, built with React Native primitives, deployable separately.
 - **Module Federation**: Host app dynamically loads MFs on web via Webpack Module Federation.
 - **Cross-Platform**: All apps run on Web and Mobile (Expo/React Native + react-native-web).
@@ -35,6 +36,7 @@ Raftlab/
 ## Getting Started
 
 ### 1. Install dependencies (from project root)
+
 ```sh
 npm install
 cd packages/graphql-api && npm install
@@ -45,14 +47,18 @@ cd ../../..
 ```
 
 ### 2. Start the GraphQL API
+
 ```sh
 cd packages/graphql-api
 node server.js
 ```
+
 - The API will run at `http://localhost:4000`.
 
 ### 3. Start Micro Frontends (Web, with Module Federation)
+
 Open **two terminals**:
+
 ```sh
 # Terminal 1: MF1 (Account Overview)
 cd packages/mf-account-overview
@@ -64,19 +70,34 @@ npx expo start --web --port 3002
 ```
 
 ### 4. Start the Host App (Web)
+
 ```sh
 cd packages/host
 npx expo start --web --port 3000
 ```
+
 - Open [http://localhost:3000](http://localhost:3000) in your browser.
 - The host will dynamically load MF1 and MF2 as remotes.
 
 ### 5. Mobile (Optional)
+
 - You can run each Expo app on Android/iOS using `npx expo start --android` or `--ios` (Module Federation is web-only, but all code is cross-platform).
 
 ---
 
+### 6. Mobile and web open
+
+```sh
+cd packages/host
+npx expo start --android
+press `w` (for web)
+
+```
+
+---
+
 ## Key Architecture
+
 - **Module Federation**: See `webpack.config.js` in each app for setup.
 - **Shared UI Kit**: Import from `ui-kit/Button` and `ui-kit/Card`.
 - **GraphQL Data**: Consumed via Apollo Client in each MF.
@@ -86,6 +107,7 @@ npx expo start --web --port 3000
 ---
 
 ## Customization & Extending
+
 - Add more shared components to `ui-kit` for greater code reuse.
 - Add more MFs by following the same Expo + Module Federation pattern.
 - Replace the mock GraphQL API with a real backend as needed.
@@ -93,4 +115,5 @@ npx expo start --web --port 3000
 ---
 
 ## License
-MIT 
+
+MIT

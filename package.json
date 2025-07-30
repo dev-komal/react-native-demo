@@ -21,6 +21,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "expo-file-system": "~18.1.11",
+    "expo-sharing": "~13.1.5"
   }
 }
